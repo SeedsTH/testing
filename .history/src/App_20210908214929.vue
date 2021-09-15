@@ -1,0 +1,92 @@
+<template>
+<div>
+    <Particles id="tsparticles" lineLinked="true" />
+    <Uploader />
+    <div>
+        <button @click="fetchPosts">Get 10 posts</button>
+    </div>
+    <Posts />
+</div>
+    
+</template>
+
+<script>
+import { Component, Vue } from "vue-property-decorator";
+import Particles from "./components/Particles/Particles.vue";
+
+import Uploader from './components/Upload.vue'
+import Posts from './components/Posts.vue'
+import axios from 'axios'
+
+@Component({
+  components: {
+    Particles,
+  },
+})
+export default {
+    components: {
+        Uploader, Posts
+    },
+    methods: {
+      async fetchPosts() {
+        try {
+          const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10')
+          console.log(response)
+        }
+        catch (e) {
+          alert("Error")
+        }
+      },
+
+    }
+};
+</script>
+
+<style lang="scss">
+.upload-file {
+    flex: 1;
+    margin-left: 16px;
+    position: relative;
+    display: flex;
+    input {
+        display: none;
+    }
+    .preview {
+        margin-left: 16px;
+        text-transform: initial;
+    }
+    span {
+        font-size: 12px;
+        margin-left: 16px;
+        align-self: center;
+    }
+}
+button,
+.router-button {
+    transition: 500ms ease all;
+    cursor: pointer;
+    margin-top: 24px;
+    padding: 12px 24px;
+    background-color: #303030;
+    color: #fff;
+    border-radius: 20px;
+    border: none;
+    text-transform: uppercase;
+    &:focus {
+        outline: none;
+    }
+    &:hover {
+        background-color: rgba (48, 48, 48, 0.7);
+    }
+}
+
+#tsparticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  z-index: -10;
+}
+</style>
