@@ -31,7 +31,7 @@
     </div>
     <div>
       <NewDialog v-model:show="dialogVisible"
-        ><h2>This show thing is not working correctly!</h2></NewDialog
+        ><h2>This is changed by PhP storm too.</h2></NewDialog
       >
     </div>
   </div>
