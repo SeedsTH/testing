@@ -31,7 +31,7 @@
     </div>
     <div>
       <NewDialog v-model:show="dialogVisible"
-        ><h2>This show thing is not working correctly!</h2></NewDialog
+        ><h2>PHP storm testing!</h2></NewDialog
       >
     </div>
   </div>
