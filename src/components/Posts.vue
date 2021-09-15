@@ -30,7 +30,9 @@
       />
     </div>
     <div>
-      <NewDialog v-model:show="dialogVisible"><h2>Some text!</h2></NewDialog>
+      <NewDialog v-model:show="dialogVisible"
+        ><h2>This show thing is not working correctly!</h2></NewDialog
+      >
     </div>
   </div>
 </template>
